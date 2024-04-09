@@ -9,17 +9,9 @@ class Vehicle {
         this.mileage = mileage;
         this.started = false;
         this.numberOfWheels = 0;
+        this.fuel = 100
     }
 
-    start() {
-        if (this.fuel > 0) {
-            return this.started = true;
-            console.log("engine started...!!!");
-        } else {
-            return this.started = false;
-            console.log("engine cannot start...");
-        }
-    }
     accelerate() {
         if (this.started) {
             if (this.fuel > 0) {
@@ -33,6 +25,7 @@ class Vehicle {
             alert("You need to start the engine first.");
         }
     }
+
     decelerate() {
         if (this.started) {
             if (this.fuel > 0) {
@@ -51,33 +44,18 @@ class Vehicle {
             alert("You need to start the engine first.");
         }
     }
+
     stop() {
+        console.log('engine off')
         this.started = false;
     }
 
-    drive() {
-        accelerate();
-    }
-    brake() {
-        decelerate();
-    }
-
-    autoPark()
-    {
-
-    }
-
-    autoDrive()
-    {
-      
-    }
-
-    typeOfVehicle(wheels) {
-        if (this.numberOfWheels == 8 && 8 == wheels) {
+    typeOfVehicle() {
+        if (this.numberOfWheels == 8) {
             console.log(this.model + " " + this.make + " is a Truck");
-        } else if (this.numberOfWheels == 4 && 4 == wheels) {
-            console.log(this.model + " " + this.make + " is a CAr");
-        } else if (this.numberOfWheels == 2 && 2 == wheels) {
+        } else if (this.numberOfWheels == 4) {
+            console.log(this.model + " " + this.make + " is a Car");
+        } else if (this.numberOfWheels == 2) {
             console.log(this.model + " " + this.make + " is a Bike");
         } else {
             console.log("Unknown type of vehicle");
