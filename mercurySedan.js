@@ -2,9 +2,7 @@ function log(message) {
     document.getElementById('output').innerHTML += message + '<br>';
 }
 
-const VehicleModule = require('./vehicle').Vehicle
-
-class Car extends VehicleModule {
+class Car extends Vehicle {
     constructor(make, model, year, color, mileage) {
         super(make, model, year, color, mileage);
         this.maximumPassengers = 5;
@@ -33,8 +31,8 @@ class Car extends VehicleModule {
         return false;
     }
 
-    scheduleService(mileage) {
-        if (mileage > 30000) {
+    checkService() {
+        if (this.mileage > 30000) {
             this.scheduleService = true;
             return true;
         }
@@ -45,8 +43,8 @@ class Car extends VehicleModule {
 let myCar1 = new Car('Mercury', 'A28', '2023', 'Silver', 0);
 let myCar2 = new Car('Mercury', 'A28', '2023', 'Black', 35000);
 
-console.log(myCar1);
-console.log(myCar2);
-console.log(myCar1.loadPassenger(4));
-console.log(myCar1.start());
-console.log(myCar2.scheduleService(myCar2.mileage));
+log(JSON.stringify(myCar1));
+log(JSON.stringify(myCar2));
+log("Load 4 passengers: " + myCar1.loadPassenger(4));
+log("Start car: " + myCar1.start());
+log("Check service: " + myCar2.checkService());

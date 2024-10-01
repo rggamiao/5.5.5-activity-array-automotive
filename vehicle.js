@@ -15,10 +15,10 @@ class Vehicle {
     accelerate() {
         if (this.started) {
             if (this.fuel > 0) {
-                console.log(this.speed += 1);
+                log(this.speed += 1);
                 this.fuel = this.fuel - 1;
             } else {
-                console.log("out of fuel.");
+                log("out of fuel.");
                 this.stop();
             }
         } else {
@@ -30,14 +30,14 @@ class Vehicle {
         if (this.started) {
             if (this.fuel > 0) {
                 if (this.speed > 0) {
-                    console.log(this.speed -= 1);
+                    log(this.speed -= 1);
                     this.fuel = this.fuel - 1;
                 } else {
-                    console.log(this + " has stopped moving");
+                    log(this + " has stopped moving");
                     this.fuel = this.fuel - 1;
                 }
             } else {
-                console.log("out of fuel.");
+                log("out of fuel.");
                 this.stop();
             }
         } else {
@@ -46,21 +46,19 @@ class Vehicle {
     }
 
     stop() {
-        console.log('engine off')
+        log('engine off')
         this.started = false;
     }
 
     typeOfVehicle() {
         if (this.numberOfWheels == 8) {
-            console.log(this.model + " " + this.make + " is a Truck");
+            log(this.model + " " + this.make + " is a Truck");
         } else if (this.numberOfWheels == 4) {
-            console.log(this.model + " " + this.make + " is a Car");
+            log(this.model + " " + this.make + " is a Car");
         } else if (this.numberOfWheels == 2) {
-            console.log(this.model + " " + this.make + " is a Bike");
+            log(this.model + " " + this.make + " is a Bike");
         } else {
-            console.log("Unknown type of vehicle");
+            log("Unknown type of vehicle");
         }
     }
 }
-
-module.exports = { Vehicle };
