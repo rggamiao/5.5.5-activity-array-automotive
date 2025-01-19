@@ -15,10 +15,10 @@ class Vehicle {
     accelerate() {
         if (this.started) {
             if (this.fuel > 0) {
-                log(this.speed += 1);
+                console.log(this.speed += 1);
                 this.fuel = this.fuel - 1;
             } else {
-                log("out of fuel.");
+                console.log("out of fuel.");
                 this.stop();
             }
         } else {
@@ -30,14 +30,14 @@ class Vehicle {
         if (this.started) {
             if (this.fuel > 0) {
                 if (this.speed > 0) {
-                    log(this.speed -= 1);
+                    console.log(this.speed -= 1);
                     this.fuel = this.fuel - 1;
                 } else {
-                    log(this + " has stopped moving");
+                    console.log(this + " has stopped moving");
                     this.fuel = this.fuel - 1;
                 }
             } else {
-                log("out of fuel.");
+                console.log("out of fuel.");
                 this.stop();
             }
         } else {
@@ -46,19 +46,22 @@ class Vehicle {
     }
 
     stop() {
-        log('engine off')
+        console.log('engine off')
         this.started = false;
     }
 
     typeOfVehicle() {
         if (this.numberOfWheels == 8) {
-            log(this.model + " " + this.make + " is a Truck");
+            console.log(this.model + " " + this.make + " is a Truck");
         } else if (this.numberOfWheels == 4) {
-            log(this.model + " " + this.make + " is a Car");
+            console.log(this.model + " " + this.make + " is a Car");
         } else if (this.numberOfWheels == 2) {
-            log(this.model + " " + this.make + " is a Bike");
+            console.log(this.model + " " + this.make + " is a Bike");
         } else {
-            log("Unknown type of vehicle");
+            console.log("Unknown type of vehicle");
         }
     }
 }
+
+//This exports things you want to use from this "module", more info in readme
+module.exports = { Vehicle }
